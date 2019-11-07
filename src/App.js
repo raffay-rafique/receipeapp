@@ -3,6 +3,12 @@ import Recipe from "./Recipe";
 import logo from "./logo.svg";
 import "./App.css";
 
+const mystyle = {
+  display: "flex",
+  flexWrap: "wrap",
+  justifyContent: "space-between"
+};
+
 const App = () => {
   const App_ID = "dabfe4b5";
   const App_Key = "7fa6c88acb782ce79667c096b88e88bd";
@@ -21,7 +27,7 @@ const App = () => {
     );
     const data = await response.json();
     setRecipes(data.hits);
-    console.log(data.hits);
+    console.log(data);
   };
   const updateSearch = e => {
     setSearch(e.target.value);
@@ -44,7 +50,7 @@ const App = () => {
           Search
         </button>
       </form>
-      <div className="recipies">
+      <div className="recipes">
         {recipes.map(recipe => (
           <Recipe
             key={recipe.recipe.label}
